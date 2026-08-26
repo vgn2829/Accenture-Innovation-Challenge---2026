@@ -8,6 +8,8 @@
 
 ## Security Posture
 
+> Current verification note (2026-08-24): this document describes the runnable prototype, not a production control. The API bounds `aiResponse` to 100,000 characters and bounds context arrays/aggregate characters. There is no implemented middleware rate limiter, real authentication, tenant isolation, or production secret-management integration. Those are explicit deployment blockers.
+
 This is a competition prototype. The security posture is appropriate for:
 - Local development
 - Controlled demo environment
@@ -48,8 +50,8 @@ Before any commit: `grep -r "sk-" . --include="*.ts"` must return empty.
 
 ### API Request Validation
 - All API endpoints validate request body schema using TypeScript types + runtime checks
-- `aiResponse` field: max 50,000 characters; truncated if exceeded with logged warning
-- `businessRecords`: parsed as JSON; malformed JSON returns 400
+- `aiResponse` field: max 100,000 characters; oversized requests are rejected
+- Caller-supplied `businessRecords` are not trusted by the orchestrator; only an allow-listed `entityRef` resolves to demo records
 - All string fields sanitized of null bytes
 - Unknown fields stripped (not passed to downstream systems)
 
@@ -64,18 +66,15 @@ Before any commit: `grep -r "sk-" . --include="*.ts"` must return empty.
 - AI response content is displayed as text, not HTML
 
 ### Request Size
-- Maximum request body: 50KB
-- Enforced via Next.js middleware before reaching API handlers
-- Returns 413 Payload Too Large for oversized requests
+- Response and context limits are enforced inside `/api/analyze`.
+- There is no global body-size middleware or request-rate limiter in this prototype.
+- Returns 413 Payload Too Large for bounded-field violations.
 
 ---
 
 ## Rate Limiting
 
-- 100 requests per minute per IP (configurable via `RATE_LIMIT_RPM`)
-- Implemented in Next.js middleware
-- Returns 429 Too Many Requests with `Retry-After` header
-- Note: In-memory rate limiter (resets on server restart); acceptable for prototype
+No rate limiter is implemented in the current repository. Add an edge/API-gateway limiter before any internet-facing deployment.
 
 ---
 
@@ -104,8 +103,7 @@ No real authentication in this prototype. This is explicitly a demo limitation.
 
 ### What IS Implemented
 - API routes are rate-limited
-- Control Desk actions require a `reviewerId` field (simulated reviewer identity)
-- Reviewer ID is logged in audit trail
+- Control Desk actions use a server-controlled demo reviewer identity (`DEMO_REVIEWER_ID`); a client-supplied reviewer ID is not authoritative.
 
 ### What Is NOT Implemented (documented limitation)
 - Real OAuth / JWT authentication

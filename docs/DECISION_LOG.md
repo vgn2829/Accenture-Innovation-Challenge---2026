@@ -258,3 +258,76 @@ Real PII detector, evidence verifier, and decision engine process these fixed in
 ## Future Decision Log Entries
 
 Subsequent decisions during implementation will be added here following the same format.
+
+---
+
+## DL-011: Next.js Version — Installed 16.3.2 vs Planned 14
+
+**DATE:** 2026-08-24  
+**DECISION:** Evaluate and accept (or downgrade) the Next.js version installed by create-next-app  
+**ORIGINAL PLAN:** DL-001 specified "Next.js 14" based on planning-phase knowledge  
+**ACTUAL INSTALLED:** Next.js 16.3.2 (installed by `npx create-next-app@latest` on 2026-08-24)
+
+**OPTIONS CONSIDERED:**
+- A: Downgrade to Next.js 14 (explicit version pin)
+- B: Keep Next.js 16.3.2 (latest stable as of installation date)
+
+**CHOSEN:** B — Keep Next.js 16.3.2  
+
+**WHY:**
+1. **Compatibility verified:** The architecture uses App Router, API Routes, Server/Client Components, and `next/font` — all of which are fully supported in Next.js 16.3.2 with no breaking changes relative to our use case (confirmed via official docs in `node_modules/next/dist/docs/`)
+2. **No deprecated APIs used:** ControlPlane.ai does not use `pages/` router, `getServerSideProps`, or any other pre-App Router pattern
+3. **Security:** Newer stable version includes security patches absent in 14
+4. **Competition benefit:** A later stable version signals engineering currency
+5. **No functional reason to downgrade:** All planned features work identically on 16.3.2
+
+**COMPATIBILITY CHECK (performed 2026-08-24):**
+- `npm run build` ✅ passes on 16.3.2 with App Router
+- `npm run typecheck` ✅ 0 errors
+- `npm run lint` ✅ 0 errors
+- `npm test` ✅ 8/8 pass
+- Route Handlers (`app/api/.../route.ts`) ✅ supported
+- `next/font/google` ✅ supported
+- Dynamic routes (`[id]`) ✅ supported
+- Server/Client component split ✅ supported
+- `better-sqlite3` (synchronous) ✅ works in Node.js Route Handlers
+
+**TRADEOFF:**  
+Minor: Future Next.js patch versions may introduce changes before the competition deadline. Mitigated by pinning exact version in `package.json` (16.3.2 currently pinned by npm).
+
+**CONSEQUENCE:**  
+DL-001 is updated in intent: "Next.js 14+" → "Next.js 16.3.2". All architectural decisions remain valid. No downgrade will occur unless a blocking incompatibility is discovered during M2–M7.
+
+---
+
+## DL-012: Directory Structure — Adopted `src/` Layout
+
+**DATE:** 2026-08-24  
+**DECISION:** Move project files from root-level `app/`, `lib/`, `types/` to `src/app/`, `src/lib/`, `src/types/`  
+**TRIGGER:** Architecture documentation specified `src/` structure; M1 initially deployed without it; corrected before M2
+
+**OPTIONS CONSIDERED:**
+- A: Keep root-level layout (current state after create-next-app)
+- B: Move to `src/` structure as documented in ARCHITECTURE.md
+
+**CHOSEN:** B — Move to `src/` structure
+
+**WHY:**
+- ARCHITECTURE.md and PRODUCT_SPEC.md both specify `src/` paths explicitly
+- Next.js 16 official docs confirm `src/` folder is fully supported (verified at `node_modules/next/dist/docs/01-app/03-api-reference/03-file-conventions/src-folder.md`)
+- Prevents drift between documentation and implementation
+- Industry convention for separating application code from root config files
+- No architectural impact — purely a file organization change
+
+**CHANGES REQUIRED:**
+- `tsconfig.json` `@/*` alias updated from `"./*"` to `"./src/*"` (required per Next.js docs)
+- `vitest.config.mts` `include` patterns and `alias` updated to `src/`
+- `.next/` cache cleared to remove stale type references to old paths
+- `next.config.ts`, `package.json`, `.env.example`, `postcss.config.mjs` remain at root (correct per docs)
+- Tailwind v4 does not require explicit content path — automatic detection works with `src/`
+
+**TRADEOFF:**  
+Small migration cost (performed in ~5 min). No ongoing tradeoffs.  
+
+**CONSEQUENCE:**  
+All source files now live under `src/`. Tests in `src/tests/`. All `@/` imports resolve to `src/`. This is the permanent structure going forward.

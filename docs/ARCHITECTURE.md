@@ -1,5 +1,36 @@
 # ControlPlane.ai — Architecture
 
+## Round 2 alignment architecture
+
+```text
+AI APPLICATION
+      ↓
+CONTROLPLANE EDGE (/api/analyze)
+      ↓
+USE-CASE / REGION PROFILE
+      ↓
+CLAIM CLASSIFICATION + BUSINESS IMPACT FLOOR
+      ↓
+VERSIONED VERIFICATION POLICY
+      ↓
+CHEAPEST SUFFICIENT VERIFICATION
+   ┌──────────┼──────────┐
+   ↓          ↓          ↓
+ TIER 0     TIER 1     TIER 2
+ rules      policy     trusted evidence
+   └──────────┼──────────┘
+      ↓
+VERIFICATION STATE → RISK FUSION → RELEASE / EDIT / BLOCK / ESCALATE
+      ↓                                      ↓
+  audit + evaluation                      CONTROL DESK
+                                             ↓
+                                      FEEDBACK EVENT
+                                             ↓
+                                    held-out evaluation
+```
+
+The inline decision path is deterministic and offline-capable. Evaluation and feedback analytics are separate from the primary demo path; no live provider is required.
+
 **Version:** 1.0  
 **Date:** 2026-08-24
 

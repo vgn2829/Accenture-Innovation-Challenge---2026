@@ -1,0 +1,106 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --canvas: #F3F0EE;
+    --surface: #FCFBFA;
+    --surface-bone: #F4F4F4;
+    --white: #FFFFFF;
+    --ink: #141413;
+    --charcoal: #262627;
+    --muted: #696969;
+    --granite: #555555;
+    --soft: #D1CDC7;
+    --ghost: #E8E2DA;
+    --border: #E5E0DA;
+    --border-subtle: #ECE8E3;
+
+    /* Accents */
+    --accent: #C84A12;
+    --accent-light: #F37338;
+    --clay: #9A3A0A;
+    --info: #3860BE;
+
+    /* Semantic States */
+    --release: #2E7D5B;
+    --release-bg: #E8F5EE;
+    --release-border: #A3D9C0;
+
+    --edit: #3860BE;
+    --edit-bg: #EEF3FC;
+    --edit-border: #B5CEF7;
+
+    --block: #B42318;
+    --block-bg: #FDF2F1;
+    --block-border: #F8A8A1;
+
+    --escalate: #A45A00;
+    --escalate-bg: #FEF7EC;
+    --escalate-border: #F7D29E;
+
+    /* Shadows */
+    --shadow-soft: 0 4px 24px 0 rgba(0, 0, 0, 0.04);
+    --shadow-elevated: 0 24px 48px 0 rgba(0, 0, 0, 0.07);
+    --shadow-floating: 0 12px 36px 0 rgba(20, 20, 19, 0.06);
+  }
+
+  body {
+    background-color: var(--canvas);
+    color: var(--ink);
+    font-family: var(--font-sofia), var(--font-inter), Arial, sans-serif;
+    letter-spacing: -0.01em;
+  }
+
+  h1, h2, h3, h4 {
+    letter-spacing: -0.02em;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  }
+}
+
+/* Custom Radius Utilities following the 20px / 40px / 999px rule */
+.radius-btn {
+  border-radius: 20px;
+}
+
+.radius-stadium {
+  border-radius: 40px;
+}
+
+.radius-pill {
+  border-radius: 999px;
+}
+
+.radius-micro {
+  border-radius: 6px;
+}
+
+/* Atmospheric Shadows */
+.shadow-soft {
+  box-shadow: 0 4px 24px 0 rgba(0, 0, 0, 0.04);
+}
+
+.shadow-elevated {
+  box-shadow: 0 24px 48px 0 rgba(0, 0, 0, 0.07);
+}
+
+.shadow-floating {
+  box-shadow: 0 12px 36px 0 rgba(20, 20, 19, 0.06);
+}
+
+/* Ghost watermark text background */
+.ghost-watermark {
+  color: #E8E2DA;
+  user-select: none;
+  pointer-events: none;
+  font-weight: 800;
+  letter-spacing: -0.04em;
+}
+
+/* Trajectory Arc Motif */
+.orbit-arc {
+  stroke: #F37338;
+  stroke-width: 1.5px;
+  stroke-dasharray: 4 4;
+  fill: none;
+  opacity: 0.85;
+}

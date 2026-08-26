@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": ["caseId", "source", "split", "useCase", "taskType", "aiResponse", "expectedDecision", "expectedImpact"],
+  "properties": {
+    "caseId": {"type": "string"},
+    "source": {"enum": ["public_dataset", "synthetic", "demo_fixture"]},
+    "split": {"enum": ["development", "validation", "evaluation"]},
+    "useCase": {"enum": ["customer_support", "knowledge_assistant", "decision_support"]},
+    "taskType": {"type": "string"},
+    "aiResponse": {"type": "string"},
+    "groundTruth": {},
+    "claimType": {"type": "string"},
+    "expectedImpact": {"enum": ["low", "medium", "high", "critical"]},
+    "requiredEvidence": {"type": "boolean"},
+    "expectedVerificationState": {"type": "string"},
+    "expectedDecision": {"enum": ["RELEASE", "EDIT", "BLOCK", "ESCALATE"]},
+    "riskLabels": {"type": "object"},
+    "reason": {"type": "string"}
+  }
+}
