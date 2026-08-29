@@ -305,7 +305,7 @@ export default function SimulatePage() {
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-2 text-[#B42318] font-bold text-sm">
                   <XCircle className="h-5 w-5" />
-                  <span>HERO SCENARIO C — CONTRADICTION FLOW</span>
+                  <span>HERO SCENARIO C: CONTRADICTION FLOW</span>
                 </div>
                 <span className="text-[10px] font-mono font-bold bg-[#B42318] text-white px-2.5 py-0.5 rounded-full uppercase">
                   CRITICAL HALLUCINATION

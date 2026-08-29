@@ -107,20 +107,33 @@ export default function OverviewPage() {
             </p>
 
             {/* CTAs */}
-            <div className="flex flex-wrap items-center gap-3 pt-2">
+            {/* CTAs — 3-Button Action Group */}
+            <div className="flex flex-col sm:flex-row sm:items-center gap-3 pt-2">
+              {/* PRIMARY: Launch Demo Simulator */}
               <Link
                 href="/simulate"
-                className="inline-flex items-center gap-2 rounded-full bg-[#141413] hover:bg-[#262627] text-[#F3F0EE] px-7 py-3 text-sm font-semibold transition-all shadow-[0_4px_24px_rgba(20,20,19,0.1)] hover:scale-[1.02] active:scale-[0.98]"
+                className="inline-flex items-center justify-center gap-2 rounded-full bg-[#141413] hover:bg-[#262627] text-[#F3F0EE] px-6 py-3.5 text-sm font-bold transition-all shadow-[0_4px_24px_rgba(20,20,19,0.14)] hover:scale-[1.02] active:scale-[0.98] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#141413] focus-visible:ring-offset-2 shrink-0"
               >
                 <PlayCircle className="h-4 w-4 text-[#F37338]" />
                 <span>Launch Demo Simulator</span>
               </Link>
+
+              {/* SECONDARY: Inspect Live Decisions */}
               <Link
                 href="/decisions"
-                className="inline-flex items-center gap-2 rounded-full bg-white hover:bg-[#FCFBFA] text-[#141413] border border-[#E5E0DA] px-6 py-3 text-sm font-semibold transition-all shadow-xs hover:border-[#141413]"
+                className="inline-flex items-center justify-center gap-2 rounded-full bg-white hover:bg-[#FCFBFA] text-[#141413] border border-[#E5E0DA] hover:border-[#141413] px-6 py-3.5 text-sm font-semibold transition-all shadow-xs hover:scale-[1.02] active:scale-[0.98] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#141413] focus-visible:ring-offset-2 shrink-0"
               >
                 <span>Inspect Live Decisions</span>
                 <ArrowRight className="h-3.5 w-3.5 text-[#696969]" />
+              </Link>
+
+              {/* TERTIARY: Evaluate Your Data */}
+              <Link
+                href="/evaluation/datasets"
+                className="inline-flex items-center justify-center gap-2 rounded-full bg-white hover:bg-[#FCFBFA] text-[#3860BE] hover:text-[#2c4e9e] border border-[#E5E0DA] hover:border-[#3860BE] px-6 py-3.5 text-sm font-semibold transition-all shadow-xs hover:scale-[1.02] active:scale-[0.98] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#3860BE] focus-visible:ring-offset-2 shrink-0"
+              >
+                <Database className="h-4 w-4 text-[#3860BE]" />
+                <span>Evaluate Your Data</span>
               </Link>
             </div>
           </div>
@@ -188,14 +201,14 @@ export default function OverviewPage() {
               </p>
             </div>
 
-            {/* Step 4 */}
-            <div className="rounded-3xl bg-[#141413] text-[#F3F0EE] p-5 space-y-2 relative shadow-md">
+            {/* Step 4 — same surface as steps 1–3, accent via border and icon colour only */}
+            <div className="rounded-3xl bg-[#FCFBFA] border border-[#C84A12]/30 p-5 space-y-2 relative">
               <div className="flex items-center justify-between">
-                <span className="text-[11px] font-bold uppercase tracking-wider text-[#F37338]">Step 04</span>
-                <ShieldCheck className="h-4 w-4 text-[#F37338]" />
+                <span className="text-[11px] font-bold uppercase tracking-wider text-[#C84A12]">Step 04</span>
+                <ShieldCheck className="h-4 w-4 text-[#C84A12]" />
               </div>
-              <h3 className="text-base font-bold text-white">Authoritative Action</h3>
-              <p className="text-xs text-[#D1CDC7] leading-relaxed">
+              <h3 className="text-base font-bold text-[#141413]">Authoritative Action</h3>
+              <p className="text-xs text-[#696969] leading-relaxed">
                 Deterministic RELEASE, EDIT, BLOCK, or ESCALATE to Control Desk.
               </p>
             </div>

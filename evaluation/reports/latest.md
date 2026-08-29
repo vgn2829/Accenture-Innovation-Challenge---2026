@@ -1,6 +1,6 @@
 # Evaluation Report
 
-Generated: 2026-08-26T23:03:40.602Z
+Generated: 2026-08-29T10:28:29.747Z
 
 - Corpus: 320 synthetic cases; held-out: 64
 - Accuracy: 1

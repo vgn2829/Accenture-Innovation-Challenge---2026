@@ -136,6 +136,7 @@ export interface DatasetRunResult {
   evaluatorInvocationCount: number;
   contaminationWarnings: string[];
   failures: DatasetRunRow[];
+  allRows?: DatasetRunRow[];
   limitations: string[];
 }
 

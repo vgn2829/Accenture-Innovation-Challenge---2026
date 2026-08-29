@@ -16,6 +16,7 @@ import {
   RefreshCw,
   Inbox,
 } from 'lucide-react';
+import { useToast } from '@/components/Toast';
 import type { ControlDeskCase, ControlDeskAction } from '@/types';
 
 export default function ControlDeskPage() {
@@ -24,7 +25,7 @@ export default function ControlDeskPage() {
   const [loading, setLoading] = useState(true);
   const [actionNotes, setActionNotes] = useState('');
   const [submitting, setSubmitting] = useState(false);
-  const [actionSuccess, setActionSuccess] = useState<string | null>(null);
+  const { toast } = useToast();
 
   const fetchCases = useCallback(async () => {
     try {
@@ -73,12 +74,19 @@ export default function ControlDeskPage() {
     };
   }, []);
 
+  const ACTION_SUCCESS_MESSAGES: Record<ControlDeskAction, string> = {
+    APPROVE_RELEASE: 'Case approved for release.',
+    APPROVE_WITH_EDIT: 'Case approved with edit.',
+    CONFIRM_BLOCK: 'Case blocked and recorded.',
+    ADD_NOTE: 'Note added to case.',
+  };
+
   const handleAction = async (action: ControlDeskAction) => {
     if (!selectedCase || submitting) return;
+    const currentCaseId = selectedCase.requestId;
     try {
       setSubmitting(true);
-      setActionSuccess(null);
-      const res = await fetch(`/api/controldesk/${selectedCase.requestId}`, {
+      const res = await fetch(`/api/controldesk/${currentCaseId}`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -87,14 +95,21 @@ export default function ControlDeskPage() {
         }),
       });
 
-      if (!res.ok) throw new Error('Failed to submit adjudication action');
+      if (!res.ok) {
+        const body = await res.json().catch(() => ({})) as { error?: string };
+        if (res.status === 409) {
+          throw new Error('Case has already been resolved.');
+        }
+        throw new Error(body.error || `Could not complete the action (HTTP ${res.status}).`);
+      }
 
-      setActionSuccess(`Case successfully adjudicated as ${action}`);
+      const successMsg = `Case ${currentCaseId} ${ACTION_SUCCESS_MESSAGES[action]?.toLowerCase() || 'updated.'}`;
+      toast('success', ACTION_SUCCESS_MESSAGES[action] ? `Case ${currentCaseId}: ${ACTION_SUCCESS_MESSAGES[action]}` : successMsg, currentCaseId);
       setActionNotes('');
       await fetchCases();
-      setTimeout(() => setActionSuccess(null), 3000);
     } catch (err) {
-      alert((err as Error).message);
+      const errMsg = (err as Error).message || 'Could not complete the action. The case may already be resolved.';
+      toast('error', errMsg, currentCaseId);
     } finally {
       setSubmitting(false);
     }
@@ -225,13 +240,6 @@ export default function ControlDeskPage() {
                   <DecisionBadge decision="ESCALATE" size="md" />
                 </div>
 
-                {/* Feedback Banner */}
-                {actionSuccess && (
-                  <div className="rounded-2xl bg-[#E8F5EE] border border-[#A3D9C0] p-4 text-xs font-bold text-[#2E7D5B] flex items-center gap-2">
-                    <CheckCircle2 className="h-4 w-4" />
-                    <span>{actionSuccess}</span>
-                  </div>
-                )}
 
                 {/* Risk Scores Grid */}
                 <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">

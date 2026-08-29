@@ -23,6 +23,8 @@ export const metadata: Metadata = {
   keywords: ['AI governance', 'AI runtime control', 'risk management', 'enterprise AI safety'],
 };
 
+import { ToastProvider } from '@/components/Toast';
+
 export default function RootLayout({
   children,
 }: {
@@ -31,7 +33,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${sofia.variable} ${inter.variable}`}>
       <body className="antialiased bg-[#F3F0EE] text-[#141413] min-h-screen selection:bg-[#C84A12]/15 selection:text-[#141413]">
-        {children}
+        <ToastProvider>{children}</ToastProvider>
       </body>
     </html>
   );

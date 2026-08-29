@@ -103,7 +103,7 @@ export function VerificationPathStepper({ path, highestTier }: VerificationPathS
                   </div>
                 ) : (
                   <div className="text-[11px] text-[#888888] italic pt-1">
-                    Skipped — risk threshold not reached (Adaptive efficiency gain)
+                    Skipped: risk threshold not reached (adaptive efficiency)
                   </div>
                 )}
               </div>

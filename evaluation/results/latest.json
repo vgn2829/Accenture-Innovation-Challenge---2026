@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-26T23:03:40.602Z",
+  "generatedAt": "2026-08-29T10:28:29.747Z",
   "corpus": {
     "total": 320,
     "development": 192,
@@ -68,14 +68,14 @@
   ],
   "latencyCostTradeoff": {
     "adaptive": {
-      "averageMs": 0.16688807812499995,
-      "p95Ms": 0.3661249999999967,
+      "averageMs": 0.14209240624999997,
+      "p95Ms": 0.3181249999999949,
       "tier2Rate": 0.53125,
       "estimatedCost": "NOT MEASURED"
     },
     "deep": {
-      "averageMs": 0.052488890625000506,
-      "p95Ms": 0.1275839999999988,
+      "averageMs": 0.03317834375000084,
+      "p95Ms": 0.04612499999998931,
       "tier2Rate": 1,
       "estimatedCost": "NOT MEASURED"
     }
@@ -92,7 +92,7 @@
       "predictedVerificationState": "CONFLICT",
       "predictedTier": 2,
       "profile": "customer_support",
-      "latencyMs": 5.132249999999999,
+      "latencyMs": 4.0392909999999915,
       "passedDecision": true,
       "passedState": true
     },
@@ -107,7 +107,7 @@
       "predictedVerificationState": "VERIFIED",
       "predictedTier": 2,
       "profile": "customer_support",
-      "latencyMs": 1.045082999999991,
+      "latencyMs": 0.983916999999991,
       "passedDecision": true,
       "passedState": true
     },
@@ -122,7 +122,7 @@
       "predictedVerificationState": "UNVERIFIED",
       "predictedTier": 2,
       "profile": "customer_support",
-      "latencyMs": 0.3661249999999967,
+      "latencyMs": 0.2915830000000028,
       "passedDecision": true,
       "passedState": true
     },
@@ -137,7 +137,7 @@
       "predictedVerificationState": "NOT_APPLICABLE",
       "predictedTier": 2,
       "profile": "decision_support",
-      "latencyMs": 0.43620899999999097,
+      "latencyMs": 0.3834580000000045,
       "passedDecision": true,
       "passedState": false
     },
@@ -152,7 +152,7 @@
       "predictedVerificationState": "UNVERIFIED",
       "predictedTier": 1,
       "profile": "knowledge_assistant",
-      "latencyMs": 0.207917000000009,
+      "latencyMs": 0.18441699999999628,
       "passedDecision": true,
       "passedState": true
     },
@@ -167,7 +167,7 @@
       "predictedVerificationState": "NOT_APPLICABLE",
       "predictedTier": 1,
       "profile": "customer_support",
-      "latencyMs": 0.1427500000000066,
+      "latencyMs": 0.12645800000001373,
       "passedDecision": true,
       "passedState": true
     },
@@ -182,7 +182,7 @@
       "predictedVerificationState": "NOT_APPLICABLE",
       "predictedTier": 1,
       "profile": "knowledge_assistant",
-      "latencyMs": 0.11841700000000799,
+      "latencyMs": 0.10645900000000097,
       "passedDecision": true,
       "passedState": true
     },
@@ -197,7 +197,7 @@
       "predictedVerificationState": "UNVERIFIED",
       "predictedTier": 2,
       "profile": "decision_support",
-      "latencyMs": 0.14325000000000898,
+      "latencyMs": 0.12399999999999523,
       "passedDecision": true,
       "passedState": true
     },
@@ -212,7 +212,7 @@
       "predictedVerificationState": "NOT_APPLICABLE",
       "predictedTier": 0,
       "profile": "knowledge_assistant",
-      "latencyMs": 0.3446249999999935,
+      "latencyMs": 0.3181249999999949,
       "passedDecision": true,
       "passedState": true
     },
@@ -227,7 +227,7 @@
       "predictedVerificationState": "NOT_APPLICABLE",
       "predictedTier": 1,
       "profile": "customer_support",
-      "latencyMs": 0.23870800000000258,
+      "latencyMs": 0.21220800000000395,
       "passedDecision": true,
       "passedState": true
     },
@@ -242,7 +242,7 @@
       "predictedVerificationState": "UNVERIFIED",
       "predictedTier": 1,
       "profile": "knowledge_assistant",
-      "latencyMs": 0.06866699999999071,
+      "latencyMs": 0.06162499999999227,
       "passedDecision": true,
       "passedState": false
     },
@@ -257,7 +257,7 @@
       "predictedVerificationState": "UNVERIFIED",
       "predictedTier": 2,
       "profile": "customer_support",
-      "latencyMs": 0.33533299999999144,
+      "latencyMs": 0.30162500000000136,
       "passedDecision": true,
       "passedState": true
     },
@@ -272,7 +272,7 @@
       "predictedVerificationState": "CONFLICT",
       "predictedTier": 2,
       "profile": "customer_support",
-      "latencyMs": 0.09774999999999068,
+      "latencyMs": 0.0863339999999937,
       "passedDecision": true,
       "passedState": true
     },
@@ -287,7 +287,7 @@
       "predictedVerificationState": "VERIFIED",
       "predictedTier": 2,
       "profile": "customer_support",
-      "latencyMs": 0.18241600000000346,
+      "latencyMs": 0.1629999999999967,
       "passedDecision": true,
       "passedState": true
     },
@@ -302,7 +302,7 @@
       "predictedVerificationState": "UNVERIFIED",
       "predictedTier": 2,
       "profile": "customer_support",
-      "latencyMs": 0.04491700000001231,
+      "latencyMs": 0.042124999999998636,
       "passedDecision": true,
       "passedState": true
     },
@@ -317,7 +317,7 @@
       "predictedVerificationState": "NOT_APPLICABLE",
       "predictedTier": 2,
       "profile": "decision_support",
-      "latencyMs": 0.26645899999999756,
+      "latencyMs": 0.24558299999999633,
       "passedDecision": true,
       "passedState": false
     },
@@ -332,7 +332,7 @@
       "predictedVerificationState": "UNVERIFIED",
       "predictedTier": 1,
       "profile": "knowledge_assistant",
-      "latencyMs": 0.02704199999999446,
+      "latencyMs": 0.024707999999989738,
       "passedDecision": true,
       "passedState": true
     },
@@ -347,7 +347,7 @@
       "predictedVerificationState": "NOT_APPLICABLE",
       "predictedTier": 1,
       "profile": "customer_support",
-      "latencyMs": 0.032958000000007814,
+      "latencyMs": 0.029665999999991755,
       "passedDecision": true,
       "passedState": true
     },
@@ -362,7 +362,7 @@
       "predictedVerificationState": "NOT_APPLICABLE",
       "predictedTier": 1,
       "profile": "knowledge_assistant",
-      "latencyMs": 0.03316700000000594,
+      "latencyMs": 0.03062500000000057,
       "passedDecision": true,
       "passedState": true
     },
@@ -377,7 +377,7 @@
       "predictedVerificationState": "UNVERIFIED",
       "predictedTier": 2,
       "profile": "decision_support",
-      "latencyMs": 0.033375000000006594,
+      "latencyMs": 0.030040999999997098,
       "passedDecision": true,
       "passedState": true
     },
@@ -392,7 +392,7 @@
       "predictedVerificationState": "NOT_APPLICABLE",
       "predictedTier": 0,
       "profile": "knowledge_assistant",
-      "latencyMs": 0.01937499999999659,
+      "latencyMs": 0.017750000000006594,
       "passedDecision": true,
       "passedState": true
     },
@@ -407,7 +407,7 @@
       "predictedVerificationState": "NOT_APPLICABLE",
       "predictedTier": 1,
       "profile": "customer_support",
-      "latencyMs": 0.03587500000000432,
+      "latencyMs": 0.03237500000000182,
       "passedDecision": true,
       "passedState": true
     },
@@ -422,7 +422,7 @@
       "predictedVerificationState": "NOT_APPLICABLE",
       "predictedTier": 1,
       "profile": "knowledge_assistant",
-      "latencyMs": 0.02658399999999972,
+      "latencyMs": 0.02616700000000094,
       "passedDecision": true,
       "passedState": true
     },
@@ -437,7 +437,7 @@
       "predictedVerificationState": "UNVERIFIED",
       "predictedTier": 2,
       "profile": "customer_support",
-      "latencyMs": 0.039917000000002645,
+      "latencyMs": 0.035583000000002585,
       "passedDecision": true,
       "passedState": true
     },
@@ -452,7 +452,7 @@
       "predictedVerificationState": "CONFLICT",
       "predictedTier": 2,
       "profile": "customer_support",
-      "latencyMs": 0.045249999999995794,
+      "latencyMs": 0.04183300000001111,
       "passedDecision": true,
       "passedState": true
     },
@@ -467,7 +467,7 @@
       "predictedVerificationState": "VERIFIED",
       "predictedTier": 2,
       "profile": "customer_support",
-      "latencyMs": 0.036625000000000796,
+      "latencyMs": 0.03787499999999966,
       "passedDecision": true,
       "passedState": true
     },
@@ -482,7 +482,7 @@
       "predictedVerificationState": "UNVERIFIED",
       "predictedTier": 2,
       "profile": "customer_support",
-      "latencyMs": 0.02579099999999812,
+      "latencyMs": 0.024374999999992042,
       "passedDecision": true,
       "passedState": true
     },
@@ -497,7 +497,7 @@
       "predictedVerificationState": "NOT_APPLICABLE",
       "predictedTier": 2,
       "profile": "decision_support",
-      "latencyMs": 0.03541699999999537,
+      "latencyMs": 0.0332080000000019,
       "passedDecision": true,
       "passedState": false
     },
@@ -512,7 +512,7 @@
       "predictedVerificationState": "UNVERIFIED",
       "predictedTier": 1,
       "profile": "knowledge_assistant",
-      "latencyMs": 0.023334000000005517,
+      "latencyMs": 0.022082999999994968,
       "passedDecision": true,
       "passedState": true
     },
@@ -527,7 +527,7 @@
       "predictedVerificationState": "NOT_APPLICABLE",
       "predictedTier": 1,
       "profile": "customer_support",
-      "latencyMs": 0.0274999999999892,
+      "latencyMs": 0.02599999999999625,
       "passedDecision": true,
       "passedState": true
     },
@@ -542,7 +542,7 @@
       "predictedVerificationState": "NOT_APPLICABLE",
       "predictedTier": 1,
       "profile": "knowledge_assistant",
-      "latencyMs": 0.09229200000000048,
+      "latencyMs": 0.08912499999999568,
       "passedDecision": true,
       "passedState": true
     },
@@ -557,7 +557,7 @@
       "predictedVerificationState": "UNVERIFIED",
       "predictedTier": 2,
       "profile": "decision_support",
-      "latencyMs": 0.02933299999999406,
+      "latencyMs": 0.028000000000005798,
       "passedDecision": true,
       "passedState": true
     },
@@ -572,7 +572,7 @@
       "predictedVerificationState": "NOT_APPLICABLE",
       "predictedTier": 0,
       "profile": "knowledge_assistant",
-      "latencyMs": 0.018584000000004153,
+      "latencyMs": 0.019333000000003153,
       "passedDecision": true,
       "passedState": true
     },
@@ -587,7 +587,7 @@
       "predictedVerificationState": "NOT_APPLICABLE",
       "predictedTier": 1,
       "profile": "customer_support",
-      "latencyMs": 0.03329100000000551,
+      "latencyMs": 0.031791999999995824,
       "passedDecision": true,
       "passedState": true
     },
@@ -602,7 +602,7 @@
       "predictedVerificationState": "UNVERIFIED",
       "predictedTier": 1,
       "profile": "knowledge_assistant",
-      "latencyMs": 0.024749999999997385,
+      "latencyMs": 0.026249999999990337,
       "passedDecision": true,
       "passedState": false
     },
@@ -617,7 +617,7 @@
       "predictedVerificationState": "UNVERIFIED",
       "predictedTier": 2,
       "profile": "customer_support",
-      "latencyMs": 0.1442909999999955,
+      "latencyMs": 0.13279099999999744,
       "passedDecision": true,
       "passedState": true
     },
@@ -632,7 +632,7 @@
       "predictedVerificationState": "CONFLICT",
       "predictedTier": 2,
       "profile": "customer_support",
-      "latencyMs": 0.051625000000001364,
+      "latencyMs": 0.04550000000000409,
       "passedDecision": true,
       "passedState": true
     },
@@ -647,7 +647,7 @@
       "predictedVerificationState": "VERIFIED",
       "predictedTier": 2,
       "profile": "customer_support",
-      "latencyMs": 0.036417000000000144,
+      "latencyMs": 0.036708000000004404,
       "passedDecision": true,
       "passedState": true
     },
@@ -662,7 +662,7 @@
       "predictedVerificationState": "UNVERIFIED",
       "predictedTier": 2,
       "profile": "customer_support",
-      "latencyMs": 0.023958999999990738,
+      "latencyMs": 0.022583000000011566,
       "passedDecision": true,
       "passedState": true
     },
@@ -677,7 +677,7 @@
       "predictedVerificationState": "NOT_APPLICABLE",
       "predictedTier": 2,
       "profile": "decision_support",
-      "latencyMs": 0.028666999999998666,
+      "latencyMs": 0.026582999999988033,
       "passedDecision": true,
       "passedState": false
     },
@@ -692,7 +692,7 @@
       "predictedVerificationState": "UNVERIFIED",
       "predictedTier": 1,
       "profile": "knowledge_assistant",
-      "latencyMs": 0.020666000000005624,
+      "latencyMs": 0.019958000000002585,
       "passedDecision": true,
       "passedState": true
     },
@@ -707,7 +707,7 @@
       "predictedVerificationState": "NOT_APPLICABLE",
       "predictedTier": 1,
       "profile": "customer_support",
-      "latencyMs": 0.024791000000007557,
+      "latencyMs": 0.024999999999991473,
       "passedDecision": true,
       "passedState": true
     },
@@ -722,7 +722,7 @@
       "predictedVerificationState": "NOT_APPLICABLE",
       "predictedTier": 1,
       "profile": "knowledge_assistant",
-      "latencyMs": 0.0274999999999892,
+      "latencyMs": 0.0264580000000052,
       "passedDecision": true,
       "passedState": true
     },
@@ -737,7 +737,7 @@
       "predictedVerificationState": "UNVERIFIED",
       "predictedTier": 2,
       "profile": "decision_support",
-      "latencyMs": 0.023666000000005738,
+      "latencyMs": 0.023334000000005517,
       "passedDecision": true,
       "passedState": true
     },
@@ -752,7 +752,7 @@
       "predictedVerificationState": "NOT_APPLICABLE",
       "predictedTier": 0,
       "profile": "knowledge_assistant",
-      "latencyMs": 0.019249999999999545,
+      "latencyMs": 0.01712499999999295,
       "passedDecision": true,
       "passedState": true
     },
@@ -767,7 +767,7 @@
       "predictedVerificationState": "NOT_APPLICABLE",
       "predictedTier": 1,
       "profile": "customer_support",
-      "latencyMs": 0.025874999999999204,
+      "latencyMs": 0.02470800000000395,
       "passedDecision": true,
       "passedState": true
     },
@@ -782,7 +782,7 @@
       "predictedVerificationState": "NOT_APPLICABLE",
       "predictedTier": 1,
       "profile": "knowledge_assistant",
-      "latencyMs": 0.021584000000004266,
+      "latencyMs": 0.021042000000008443,
       "passedDecision": true,
       "passedState": true
     },
@@ -797,7 +797,7 @@
       "predictedVerificationState": "UNVERIFIED",
       "predictedTier": 2,
       "profile": "customer_support",
-      "latencyMs": 0.026332999999993945,
+      "latencyMs": 0.02616700000000094,
       "passedDecision": true,
       "passedState": true
     },
@@ -812,7 +812,7 @@
       "predictedVerificationState": "CONFLICT",
       "predictedTier": 2,
       "profile": "customer_support",
-      "latencyMs": 0.030666999999994005,
+      "latencyMs": 0.030249999999995225,
       "passedDecision": true,
       "passedState": true
     },
@@ -827,7 +827,7 @@
       "predictedVerificationState": "VERIFIED",
       "predictedTier": 2,
       "profile": "customer_support",
-      "latencyMs": 0.02704199999999446,
+      "latencyMs": 0.024500000000003297,
       "passedDecision": true,
       "passedState": true
     },
@@ -842,7 +842,7 @@
       "predictedVerificationState": "UNVERIFIED",
       "predictedTier": 2,
       "profile": "customer_support",
-      "latencyMs": 0.021459000000007222,
+      "latencyMs": 0.024375000000006253,
       "passedDecision": true,
       "passedState": true
     },
@@ -857,7 +857,7 @@
       "predictedVerificationState": "NOT_APPLICABLE",
       "predictedTier": 2,
       "profile": "decision_support",
-      "latencyMs": 0.02679200000000037,
+      "latencyMs": 0.025041000000001645,
       "passedDecision": true,
       "passedState": false
     },
@@ -872,7 +872,7 @@
       "predictedVerificationState": "UNVERIFIED",
       "predictedTier": 1,
       "profile": "knowledge_assistant",
-      "latencyMs": 0.020291999999997756,
+      "latencyMs": 0.01891700000000185,
       "passedDecision": true,
       "passedState": true
     },
@@ -887,7 +887,7 @@
       "predictedVerificationState": "NOT_APPLICABLE",
       "predictedTier": 1,
       "profile": "customer_support",
-      "latencyMs": 0.023207999999996787,
+      "latencyMs": 0.03304199999999469,
       "passedDecision": true,
       "passedState": true
     },
@@ -902,7 +902,7 @@
       "predictedVerificationState": "NOT_APPLICABLE",
       "predictedTier": 1,
       "profile": "knowledge_assistant",
-      "latencyMs": 0.023334000000005517,
+      "latencyMs": 0.020792000000000144,
       "passedDecision": true,
       "passedState": true
     },
@@ -917,7 +917,7 @@
       "predictedVerificationState": "UNVERIFIED",
       "predictedTier": 2,
       "profile": "decision_support",
-      "latencyMs": 0.02370899999999665,
+      "latencyMs": 0.021000000000000796,
       "passedDecision": true,
       "passedState": true
     },
@@ -932,7 +932,7 @@
       "predictedVerificationState": "NOT_APPLICABLE",
       "predictedTier": 0,
       "profile": "knowledge_assistant",
-      "latencyMs": 0.017416999999994687,
+      "latencyMs": 0.014915999999999485,
       "passedDecision": true,
       "passedState": true
     },
@@ -947,7 +947,7 @@
       "predictedVerificationState": "NOT_APPLICABLE",
       "predictedTier": 1,
       "profile": "customer_support",
-      "latencyMs": 0.0350000000000108,
+      "latencyMs": 0.0325419999999923,
       "passedDecision": true,
       "passedState": true
     },
@@ -962,7 +962,7 @@
       "predictedVerificationState": "UNVERIFIED",
       "predictedTier": 1,
       "profile": "knowledge_assistant",
-      "latencyMs": 0.021791000000007443,
+      "latencyMs": 0.019459000000011883,
       "passedDecision": true,
       "passedState": false
     },
@@ -977,7 +977,7 @@
       "predictedVerificationState": "UNVERIFIED",
       "predictedTier": 2,
       "profile": "customer_support",
-      "latencyMs": 0.02137500000000614,
+      "latencyMs": 0.02041700000000901,
       "passedDecision": true,
       "passedState": true
     },
@@ -992,7 +992,7 @@
       "predictedVerificationState": "CONFLICT",
       "predictedTier": 2,
       "profile": "customer_support",
-      "latencyMs": 0.02975000000000705,
+      "latencyMs": 0.026084000000011542,
       "passedDecision": true,
       "passedState": true
     },
@@ -1007,7 +1007,7 @@
       "predictedVerificationState": "VERIFIED",
       "predictedTier": 2,
       "profile": "customer_support",
-      "latencyMs": 0.02724999999999511,
+      "latencyMs": 0.021332999999998492,
       "passedDecision": true,
       "passedState": true
     },
@@ -1022,7 +1022,7 @@
       "predictedVerificationState": "UNVERIFIED",
       "predictedTier": 2,
       "profile": "customer_support",
-      "latencyMs": 0.022832999999991443,
+      "latencyMs": 0.015957999999997696,
       "passedDecision": true,
       "passedState": true
     },
@@ -1037,7 +1037,7 @@
       "predictedVerificationState": "NOT_APPLICABLE",
       "predictedTier": 2,
       "profile": "decision_support",
-      "latencyMs": 0.0229580000000027,
+      "latencyMs": 0.020334000000005403,
       "passedDecision": true,
       "passedState": false
     }

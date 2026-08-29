@@ -69,4 +69,65 @@ describe('final-pass independent red-team', () => {
     it('escalates the ambiguity scenario', async () => { const result = await runScenario('D', 'customer_support'); expect(result.data.decision).toBe('ESCALATE'); });
     it('keeps trusted evidence classification explicit in the refund result', async () => { const result = await runScenario('C', 'customer_support'); expect(result.data.evidenceSource).toBe('trusted_demo_record'); });
   });
+
+  describe('evaluation results console & control desk regression tests', () => {
+    it('returns allRows and 4 decision distribution counters from evaluateCanonicalCases', async () => {
+      const parsed = new JsonAdapter().parse('[{"case":"c1","answer":"safe info"},{"case":"c2","answer":"email is test@example.com"},{"case":"c3","answer":"Your refund of ₹24,500 has been processed successfully"}]');
+      const profile = profileDataset('test-run-1', 'test.json', parsed);
+      const normalized = normalizeAndMap(parsed.rows, parsed, profile, { caseId: 'case', aiResponse: 'answer' });
+      const result = await evaluateCanonicalCases('test-run-1', 'test.json', normalized.cases, 'customer_support', 'adaptive');
+
+      expect(result.decisionDistribution).toBeDefined();
+      expect(result.decisionDistribution.RELEASE).toBeGreaterThanOrEqual(0);
+      expect(result.decisionDistribution.EDIT).toBeGreaterThanOrEqual(0);
+      expect(result.decisionDistribution.BLOCK).toBeGreaterThanOrEqual(0);
+      expect(result.decisionDistribution.ESCALATE).toBeGreaterThanOrEqual(0);
+      expect(result.allRows).toBeDefined();
+      expect(result.allRows?.length).toBe(3);
+      expect(result.allRows?.[0].caseId).toBe('c1');
+      expect(result.allRows?.[0].predictedDecision).toBeDefined();
+    });
+
+    it('ensures only ESCALATE cases reach the Control Desk queue in operations', async () => {
+      const { getControlDeskCases } = await import('@/lib/db/operations');
+      const beforeCount = getControlDeskCases('PENDING').length;
+
+      // Simulate a RELEASE decision
+      const releaseResult = await runScenario('A', 'customer_support');
+      expect(releaseResult.data.decision).toBe('RELEASE');
+      const afterReleaseCount = getControlDeskCases('PENDING').length;
+      expect(afterReleaseCount).toBe(beforeCount);
+
+      // Simulate an ESCALATE decision
+      const escalateResult = await runScenario('D', 'customer_support');
+      expect(escalateResult.data.decision).toBe('ESCALATE');
+      const afterEscalateCount = getControlDeskCases('PENDING').length;
+      expect(afterEscalateCount).toBeGreaterThanOrEqual(beforeCount + 1);
+    });
+
+    it('prevents replay resolution and returns 409 conflict', async () => {
+      const { POST: controlDeskAction } = await import('@/app/api/controldesk/[id]/route');
+      const { getControlDeskCases } = await import('@/lib/db/operations');
+      const pendingCases = getControlDeskCases('PENDING');
+      if (pendingCases.length > 0) {
+        const targetId = pendingCases[0].requestId;
+        const req1 = new NextRequest(`http://localhost/api/controldesk/${targetId}`, {
+          method: 'POST',
+          body: JSON.stringify({ action: 'CONFIRM_BLOCK', note: 'Blocked in test' }),
+          headers: { 'content-type': 'application/json' },
+        });
+        const res1 = await controlDeskAction(req1, { params: Promise.resolve({ id: targetId }) });
+        expect(res1.status).toBe(200);
+
+        // Replay resolution must fail with 409
+        const req2 = new NextRequest(`http://localhost/api/controldesk/${targetId}`, {
+          method: 'POST',
+          body: JSON.stringify({ action: 'CONFIRM_BLOCK', note: 'Replay attempt' }),
+          headers: { 'content-type': 'application/json' },
+        });
+        const res2 = await controlDeskAction(req2, { params: Promise.resolve({ id: targetId }) });
+        expect(res2.status).toBe(409);
+      }
+    });
+  });
 });
