@@ -54,3 +54,7 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# temporary dataset evaluation run artifacts
+evaluation/results/dataset-*.json
+

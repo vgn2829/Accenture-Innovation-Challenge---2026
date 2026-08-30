@@ -395,9 +395,9 @@ npm run lint
 npm run typecheck
 
 # Run production build validation
-npx next build --webpack
+npm run build
 
-# Run offline synthetic evaluation runner
+# Run offline synthetic evaluation runner (600 cases)
 npm run evaluate
 ```
 

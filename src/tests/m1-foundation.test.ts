@@ -32,8 +32,20 @@ describe('M1 Foundation', () => {
 
     beforeAll(async () => {
       // Dynamic import to ensure env var is set first
+      const dbPath = process.env.DATABASE_PATH!;
+      try {
+        if (fs.existsSync(dbPath)) fs.unlinkSync(dbPath);
+      } catch {
+        // Ignore if file is open
+      }
       const { getDb } = await import('@/lib/db/client');
       db = getDb();
+      try {
+        db.prepare('DELETE FROM decisions').run();
+        db.prepare('DELETE FROM control_desk').run();
+      } catch {
+        // Ignore if tables not yet created
+      }
     });
 
     afterAll(() => {

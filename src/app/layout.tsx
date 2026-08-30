@@ -31,8 +31,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${sofia.variable} ${inter.variable}`}>
-      <body className="antialiased bg-[#F3F0EE] text-[#141413] min-h-screen selection:bg-[#C84A12]/15 selection:text-[#141413]">
+    <html lang="en" className={`${sofia.variable} ${inter.variable}`} suppressHydrationWarning>
+      <body className="antialiased bg-[#F3F0EE] text-[#141413] min-h-screen selection:bg-[#C84A12]/15 selection:text-[#141413]" suppressHydrationWarning>
         <ToastProvider>{children}</ToastProvider>
       </body>
     </html>

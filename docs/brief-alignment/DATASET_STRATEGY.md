@@ -15,7 +15,7 @@ Public/open dataset candidates are recorded for future expansion only: TruthfulQ
 | BBQ | [NYU repository](https://github.com/nyu-mll/BBQ) | social bias | Repository identifies CC-BY-4.0; check attribution and task fit | Candidate only |
 | HaluEval | official paper/repository not pinned in this prototype | hallucination | Exact license/artifact provenance not verified in this pass | Candidate only |
 
-These sources are not part of the measured 320-case result. Their labels, domains, language coverage, and contamination risk would require a separate import audit.
+These sources are not part of the measured 600-case result. Their labels, domains, language coverage, and contamination risk would require a separate import audit.
 
 ## Splits
 

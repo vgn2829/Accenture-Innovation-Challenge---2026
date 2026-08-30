@@ -1,14 +1,14 @@
 # Evaluation Report
 
-Generated: 2026-08-29T10:28:29.747Z
+Generated: 2026-08-30T11:16:37.448Z
 
-- Corpus: 320 synthetic cases; held-out: 64
+- Corpus: 600 synthetic cases; held-out: 120
 - Accuracy: 1
 - False release rate: 0
 - False block rate: 0
 - High-impact escalation recall: 1
-- Verification coverage: 0.921875
-- Tier distribution: {"tier0":5,"tier1":25,"tier2":34}
+- Verification coverage: 0.875
+- Tier distribution: {"tier0":15,"tier1":51,"tier2":54}
 - Calibration: NOT ESTABLISHED
 
 ## Use-case policy comparison
